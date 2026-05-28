@@ -45,6 +45,7 @@ public class ServicioPelicula {
         existente.setGenero(pelicula.getGenero());
         existente.setDuracion(pelicula.getDuracion());
         existente.setDisponible(pelicula.isDisponible());
+        existente.setCalificacion(pelicula.getCalificacion());
 
         return repo.save(existente);
     }

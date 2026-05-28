@@ -1,11 +1,6 @@
 package com.krakdev.apihibernate.peliculas.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "peliculas")
@@ -31,13 +26,17 @@ public class Pelicula {
     @Column(name = "disponible", nullable = false)
     private boolean disponible;
 
+    @Column(name = "calificacion", nullable = false)
+    private double calificacion;
+
     // Constructor vacío
     public Pelicula() {
     }
 
     // Constructor con parámetros
     public Pelicula(Long id, String nombre, String director,
-            String genero, int duracion, boolean disponible) {
+            String genero, int duracion,
+            boolean disponible, double calificacion) {
 
         this.id = id;
         this.nombre = nombre;
@@ -45,9 +44,10 @@ public class Pelicula {
         this.genero = genero;
         this.duracion = duracion;
         this.disponible = disponible;
+        this.calificacion = calificacion;
     }
 
-    // Getters y Setters
+    // Getters y setters
     public Long getId() {
         return id;
     }
@@ -96,14 +96,24 @@ public class Pelicula {
         this.disponible = disponible;
     }
 
+    public double getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(double calificacion) {
+        this.calificacion = calificacion;
+    }
+
     // toString
     @Override
     public String toString() {
-        return "Pelicula [id=" + id +
-                ", nombre=" + nombre +
-                ", director=" + director +
-                ", genero=" + genero +
-                ", duracion=" + duracion +
-                ", disponible=" + disponible + "]";
+        return "Pelicula [id=" + id
+                + ", nombre=" + nombre
+                + ", director=" + director
+                + ", genero=" + genero
+                + ", duracion=" + duracion
+                + ", disponible=" + disponible
+                + ", calificacion=" + calificacion
+                + "]";
     }
 }
